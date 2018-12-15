@@ -2,7 +2,7 @@
     <div>
             <h1>Customer List</h1>
             <b-table striped hover 
-        :items="products" 
+        :items="customer" 
         :fields="fields" 
         :per-page="pageSize" 
         :current-page="pageIndex"></b-table>
@@ -17,7 +17,7 @@ export default {
   data(){
       return {
           message:'Final Test',
-          products: [],
+          customer: [],
           pageSize: 10,
           pageIndex: 1,
           fields: [ 
@@ -43,7 +43,7 @@ export default {
       .get('https://resttestfinal.herokuapp.com/api/customer')
       .then(function(response){
           console.log(response.data) 
-          //instance.products = response
+          instance.products = response
       })
   }
 }
