@@ -1,7 +1,7 @@
 <template>
     <div>
            <bars
-            :data="customer"
+            :data="country"
             :gradient="['#ffbe88', '#ff93df']"
             :barWidth="5"
             :growDuration="1">
@@ -14,13 +14,17 @@ export default {
   name: 'country',
   data(){
       return {
-          message:'Final Test',
+          message:'Final Test ',
           country: [],
           pageSize: 10,
           pageIndex: 1,
           fields: [ 
               {
                   key:'country',
+                  sortable : true
+              },
+              {
+                  key:'range',
                   sortable : true
               }
         ],
@@ -32,7 +36,7 @@ export default {
       .get('https://resttestfinal.herokuapp.com/api/country')
       .then(function(response){
           console.log(response.data.data) 
-          //instance.customer = response.data.data
+          instance.country = response.data.data
 
       })
   }
