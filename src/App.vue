@@ -2,7 +2,7 @@
   <div id="app">
     <nav class="navbar navbar-expand  navbar-dark bg-dark">
      <div class="nav navbar-nav">
-      <router-link to="/" class="nav-item nav-link active">Home</router-link> |
+      <router-link to="/" class="nav-item nav-link active">Home</router-link> 
     </div></nav>
     <router-view/>
   </div>

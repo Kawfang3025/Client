@@ -42,8 +42,8 @@ export default {
       axios
       .get('https://resttestfinal.herokuapp.com/api/customer')
       .then(function(response){
-          console.log(response.data) 
-          instance.products = response
+          console.log(response.data.data) 
+          instance.customer = response.data.data
       })
   }
 }
