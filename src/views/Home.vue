@@ -1,18 +1,50 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+    <div>
+            <h1>Customer List</h1>
+            <b-table striped hover 
+        :items="products" 
+        :fields="fields" 
+        :per-page="pageSize" 
+        :current-page="pageIndex"></b-table>
+        <b-pagination size="md" :total-rows="customer.length" v-model="pageIndex" :per-page="pageSize">
+    </b-pagination>
+    </div>
 </template>
-
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
+import axios from 'axios'
 export default {
-  name: 'home',
-  components: {
-    HelloWorld
+  name: 'customer',
+  data(){
+      return {
+          message:'Final Test',
+          products: [],
+          pageSize: 10,
+          pageIndex: 1,
+          fields: [ 
+              {
+                  key:'customer_id',
+                  sortable : true
+              },
+              {
+                  key:'company_name',
+                  sortable : true
+              },
+              {
+                  key:'phone',
+                  sortable : true,
+                  variant: 'danger'
+              },
+        ],
+      }
+  },
+  mounted(){
+      var instance = this
+      axios
+      .get('https://resttestfinal.herokuapp.com/api/customer')
+      .then(function(response){
+          console.log(response.data) 
+          //instance.products = response
+      })
   }
 }
 </script>
