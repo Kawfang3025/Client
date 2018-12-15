@@ -6,7 +6,7 @@
         :fields="fields" 
         :per-page="pageSize" 
         :current-page="pageIndex"></b-table>
-        <b-pagination size="md" :total-rows="customer.length" v-model="pageIndex" :per-page="pageSize">
+        <b-pagination align="center" size="md" :total-rows="customer.length" v-model="pageIndex" :per-page="pageSize">
     </b-pagination>
     </div>
 </template>
@@ -29,10 +29,17 @@ export default {
                   key:'company_name',
                   sortable : true
               },
+               {
+                  key:'contact_name',
+                  sortable : true,
+              },
               {
                   key:'phone',
                   sortable : true,
-                  variant: 'danger'
+              },
+              {
+                  key:'fax',
+                  sortable : true,
               },
         ],
       }
@@ -44,6 +51,7 @@ export default {
       .then(function(response){
           console.log(response.data.data) 
           instance.customer = response.data.data
+
       })
   }
 }

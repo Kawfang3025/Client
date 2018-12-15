@@ -1,43 +1,27 @@
 <template>
     <div>
-            <h1>Customer List</h1>
-            <b-table striped hover 
-        :items="customer" 
-        :fields="fields" 
-        :per-page="pageSize" 
-        :current-page="pageIndex"></b-table>
-        <b-pagination size="md" :total-rows="customer.length" v-model="pageIndex" :per-page="pageSize">
-    </b-pagination>
+           <bars
+            :data="customer"
+            :gradient="['#ffbe88', '#ff93df']"
+            :barWidth="5"
+            :growDuration="1">
+            </bars>
     </div>
 </template>
 <script>
 import axios from 'axios'
 export default {
-  name: 'customer',
+  name: 'country',
   data(){
       return {
           message:'Final Test',
-          customer: [],
+          country: [],
           pageSize: 10,
           pageIndex: 1,
           fields: [ 
               {
-                  key:'customer_id',
+                  key:'country',
                   sortable : true
-              },
-              {
-                  key:'company_name',
-                  sortable : true
-              },
-              {
-                  key:'contact_name',
-                  sortable : true,
-              },{
-                  key:'phone',
-                  sortable : true,
-              },{
-                  key:'fax',
-                  sortable : true,
               }
         ],
       }
@@ -45,10 +29,11 @@ export default {
   mounted(){
       var instance = this
       axios
-      .get('https://resttestfinal.herokuapp.com/api/customer')
+      .get('https://resttestfinal.herokuapp.com/api/country')
       .then(function(response){
           console.log(response.data.data) 
-          instance.customer = response.data.data
+          //instance.customer = response.data.data
+
       })
   }
 }
