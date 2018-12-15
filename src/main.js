@@ -5,9 +5,7 @@ import BootstrapVue from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import Bars from 'vuebars'
-import Chart from 'chart.js';
 
-Vue.use(Chart)
 Vue.use(Bars)
 Vue.use(BootstrapVue);
 Vue.config.productionTip = false

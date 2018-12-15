@@ -1,7 +1,7 @@
 <template>
     <div>
            <bars
-            :data="country"
+            :data="fields"
             :gradient="['#ffbe88', '#ff93df']"
             :barWidth="5"
             :growDuration="1">
@@ -19,10 +19,6 @@ export default {
           pageSize: 10,
           pageIndex: 1,
           fields: [ 
-              {
-                  key:'country',
-                  sortable : true
-              },
               {
                   key:'range',
                   sortable : true
